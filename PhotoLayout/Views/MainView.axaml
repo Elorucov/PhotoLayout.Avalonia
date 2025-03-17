@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:PhotoLayout.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PhotoLayout.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+
+  <Grid Margin="6" ColumnDefinitions="128 *">
+    <StackPanel Margin="6" Spacing="6">
+      <TextBox x:Name="PLWidth" Watermark="Width" Text="480"/>
+      <TextBox x:Name="PLHeight" Watermark="Height" Text="540"/>
+      <CheckBox x:Name="PLRandom" Content="Random"/>
+      <RadioButton GroupName="a" x:Name="PLDefault" Content="Default" IsChecked="True"/>
+      <RadioButton GroupName="a" x:Name="PLLands" Content="Only landscape"/>
+      <RadioButton GroupName="a" x:Name="PLPorts" Content="Only portrait"/>
+      <RadioButton GroupName="a" x:Name="PLSquar" Content="Only squares"/>
+      <Button x:Name="UpdateButton" Content="Render" Click="Button_Click"/>
+    </StackPanel>
+    <StackPanel x:Name="PhotoLayoutRoot" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="6" Background="#3f7f7f7f"/>
+  </Grid>
+</UserControl>
